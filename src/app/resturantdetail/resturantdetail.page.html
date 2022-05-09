@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>ResturantDetail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="head">
+    <img src="assets/icon/favicon.png" alt="">
+  </div>
+  <div><h1>{{name}}</h1></div>
+<div class="detail ion-padding">
+  <ion-item >
+    <pre>Name:  {{name}}</pre>
+  </ion-item>
+  <ion-item>
+    <pre>Address:  {{address}}</pre>
+  </ion-item>
+  <ion-item>
+    <pre>Phone:  {{phone}}</pre>
+  </ion-item>
+  <ion-item>
+    <pre>Description:  {{description}}</pre>
+  </ion-item>
+  <ion-item>
+    <pre>Tag:  {{tag}}</pre>
+  </ion-item>
+
+  <div id="buttons">
+    <ion-button (click)="gotoedit()">Edit</ion-button>
+    <ion-button (click)="gotoloc()">loc</ion-button>
+  </div>
+  <div class="stars">
+    <ngx-stars [size]="2"  [color]="'#4ca5ff'"  id="star" #star [initialStars]="setstar"  [readonly]="false"
+
+    [customPadding]="'15px'"
+    (ratingOutput)="onRatingSet($event)"
+    >
+
+    </ngx-stars>
+  </div>
+
+  <div class="stars">
+    <ion-button (click)="deletres()" color="danger">Delete</ion-button>
+  </div>
+</div>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Edit Resturant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="head">
+    <img src="assets/icon/favicon.png" alt="">
+  </div>
+  <div><h1>Edit Resturant</h1></div>
+<div class="detail ion-padding">
+  <ion-item>
+    <ion-label position="floating">name</ion-label>
+
+    <ion-input [(ngModel)]="resturantname" [value]="name2"  placeholder="enter name"></ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">address</ion-label>
+    <ion-input [(ngModel)]="address" [value]="address2"  placeholder="enter address"></ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">phone2</ion-label>
+    <ion-input [(ngModel)]="phone" [value]="phone2" placeholder="enter phone number"></ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">description2</ion-label>
+    <ion-input [(ngModel)]="description" [value]="description2" placeholder="enter description"></ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">tag2</ion-label>
+   <ion-input [(ngModel)]="tag" [value]="tag2" placeholder="enter tags"></ion-input>
+  </ion-item>
+
+  <div id="buttons">
+    <ion-button (click)="editResturant()">Update Resturant</ion-button>
+
+  </div>
+
+</div>
+</ion-content>

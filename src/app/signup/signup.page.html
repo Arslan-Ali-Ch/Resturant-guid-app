@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<div class="container">
+  <div class="header">
+    <img src="assets/icon/favicon.png" alt="">
+  </div>
+
+  <div class="mid">
+    <form [formGroup]="mainform">
+      <ion-item lines="none" class="name">
+        <ion-label  position="floating">Name</ion-label>
+        <ion-input
+        [(ngModel)]="name2"
+        min="5"
+        clear-on-edit="true"
+        inputmode="text"
+        formControlName="name"
+        required="true"></ion-input>
+        <ion-icon
+         class="ion-align-self-center"
+         slot="end"
+         name="user">
+         </ion-icon>
+
+      </ion-item>
+      <label style="color: red; margin-left: 20px;"
+      *ngIf="name && name.hasError('minlength') && name.touched">
+        Name atleast 4 character long
+        </label>
+      <ion-item lines="none" class="email">
+        <ion-label  position="floating">Email</ion-label>
+        <ion-input
+        [(ngModel)]="email2"
+        clear-on-edit="true"
+        inputmode="email"
+        formControlName="email"
+        required="true"></ion-input>
+        <ion-icon
+         class="ion-align-self-center"
+         slot="end"
+         name="mail">
+         </ion-icon>
+
+      </ion-item>
+      <label style="color: red; margin-left: 20px;"
+      *ngIf="email && email.hasError('email') && email.touched">
+        email format is not valid
+        </label>
+        <label style="color: red; margin-left: 20px;"
+      *ngIf="email && email.hasError('required') && email.touched">
+        email is required
+        </label>
+      <ion-item lines="none" class="pass">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input clear-on-edit="true"
+        [(ngModel)]="password2"
+        [type]="type ? 'password' : 'text'"
+         min="8" formControlName="password"
+         required="true"></ion-input>
+         <ion-icon
+         class="ion-align-self-center"
+         slot="end"
+         name="eye-outline" (click)="changetype()">
+         </ion-icon>
+         </ion-item>
+
+         <label style="color: red;
+          margin-left: 20px;"
+          *ngIf="mainform.get('password').hasError('required') && pass.touched">
+          password is required
+          </label>
+          <label style="color: red;
+          margin-left: 20px;"
+          *ngIf="mainform.get('password').hasError('minlength') && pass.touched">
+          password atleast 8 character long
+          </label>
+
+
+    </form>
+  </div>
+
+  <div class="footer">
+    <div id="signin">
+      <ion-button (click)="signup()" color="dark" expand="block">SignUP</ion-button>
+    </div>
+
+  </div>
+

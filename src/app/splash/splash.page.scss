@@ -1,0 +1,44 @@
+.container{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 50px);
+  top: calc(50% - 50px);
+  animation: bounce 1s normal;
+  background-color: aquamarine;
+  img{
+            height: 100px;
+          }
+}
+@keyframes bounce {
+0%{
+  transform: translateY(-500px);
+  animation-timing-function:ease-in;opacity:0
+}
+40%{transform:translateY(0);
+  animation-timing-function:ease-out;opacity:1
+}
+60%{transform:translateY(-100px);
+  animation-timing-function:ease-in}
+  75%{transform:translateY(0);
+    animation-timing-function:ease-out}
+    80%{transform:translateY(-50px);
+
+      animation-timing-function:ease-in}
+     90%{transform:translateY(0);
+        animation-timing-function:ease-out}
+        95%{transform:translateY(-15px);
+animation-timing-function:ease-in}
+100%{transform:translateY(0);
+  animation-timing-function:ease-out}
+}
+
+
+
+
+// @keyframes bounce-in-top{
+//   0%{transform:translateY(-500px);
+
+
+

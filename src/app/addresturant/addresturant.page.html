@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>addResturant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="head">
+    <img src="assets/icon/favicon.png" alt="">
+  </div>
+  <div><h1>Add Resturant</h1></div>
+<div class="detail ion-padding">
+ <form action="" [formGroup]="form">
+  <ion-item >
+    <ion-label position="floating">Resturant Name</ion-label>
+
+    <ion-input [(ngModel)]="resturantname" formControlName="rname" placeholder="enter name"></ion-input>
+
+  </ion-item>
+  <label style="color: red;margin-left: 40px;margin-top: 4px ;display: block;margin-right: 40px"
+   *ngIf="form.get('rname').hasError('pattern') || form.get('rname').hasError('minlength') ||
+   form.get('rname').hasError('maxlength') && rname.touched
+   ">
+  invalid name
+  </label>
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input [(ngModel)]="address" formControlName="raddress" placeholder="enter address"></ion-input>
+
+  </ion-item>
+  <label style="color: red;margin-left: 40px;margin-top: 4px;display: block;margin-right: 40px"
+   *ngIf="form.get('raddress').hasError('minlength') || form.get('raddress').hasError('maxlength')
+   && rname.touched">
+    address is too min or too large
+  </label>
+  <ion-item>
+    <ion-label position="floating">Phone</ion-label>
+    <ion-input [(ngModel)]="phone" formControlName="rphone" placeholder="enter phone number"></ion-input>
+
+  </ion-item>
+  <label style="color: red;margin-left: 40px;margin-top: 4px;display: block;margin-right: 20px"
+   *ngIf="form.get('rphone').hasError('pattern')
+ ||form.get('rphone').hasError('minlength') ||
+ form.get('rphone').hasError('maxlength') && rname.touched">
+  invalid phone number too min or large
+</label>
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input [(ngModel)]="description" formControlName="rdesc" placeholder="enter description"></ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tags</ion-label>
+   <ion-input [(ngModel)]="tag" formControlName="rtag" placeholder="enter tags"></ion-input>
+  </ion-item>
+  <label style="color: red;margin-left: 40px;margin-top: 4px;display: block;margin-right: 40px"
+  *ngIf="form.get('rtag').hasError('minlength')
+  ||form.get('rtag').hasError('maxlength') ||
+  form.get('rtag').hasError('pattern') && rname.touched">
+    invalid tag
+  </label>
+ </form>
+
+  <div id="buttons">
+    <ion-button [disabled]="form.invalid" (click)="addresturant()">Add Resturant</ion-button>
+
+  </div>
+
+</div>
+</ion-content>

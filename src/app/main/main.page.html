@@ -1,0 +1,69 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="gotoadd()" class="hove">
+        <ion-icon  name="add-circle-sharp" slot="start"></ion-icon>
+        <ion-label>Add Resturant</ion-label>
+      </ion-item>
+
+      <ion-item class="hove" (click)="gotodetail()">
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>Detail</ion-label>
+      </ion-item>
+
+      <ion-item class="hove" (click)="gotosignout()">
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>Sign Out</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>Home</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+          <div class="head">
+            <img src="assets/icon/favicon.png" alt="">
+          </div>
+          <div class="ionsearch">
+            <ion-searchbar
+            color="dark"
+            bounce="500"
+            placeholder="Search by name or tag"
+            showCancelButton="focus"
+            animated
+             [(ngModel)]="item" >
+
+            </ion-searchbar>
+          </div>
+          <div class="container">
+
+            <div class="ionlist" >
+              <ion-list class="items">
+                <ion-item  lines="inset" *ngFor="let d of alldata | filter:item; let i=index " [routerLink]="['/resturantdetail/',{id:d.id,index:i}]">
+                  <ion-label >{{d.data.name}}
+                    <p >{{d.data.tag}}</p>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </div>
+          </div>
+          <div class="footer">
+
+          </div>
+          </ion-content>
+
+      </div>
+

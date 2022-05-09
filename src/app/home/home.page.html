@@ -1,0 +1,64 @@
+<ion-content>
+  <div class="container">
+
+
+
+  <div class="header">
+  <img src="assets/icon/favicon.png" alt="">
+  </div>
+
+  <div class="mid">
+   <form [formGroup]="mainform">
+      <ion-item lines="none" class="email">
+        <ion-label  position="floating">Email</ion-label>
+       <ion-input
+       [(ngModel)]="email2"
+        clear-on-edit="true"
+        inputmode="email"
+        formControlName="email"
+        required="true"></ion-input>
+        <ion-icon
+        class="ion-align-self-center"
+        slot="end"
+        name="mail">
+        </ion-icon>
+
+      </ion-item>
+      <label style="color: red; margin-left: 20px;" *ngIf="email && email.invalid && email.touched">
+       invalid email
+        </label>
+      <ion-item lines="none" class="pass">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input clear-on-edit="true"
+        [(ngModel)]="pass2"
+        [type]="type ? 'password' : 'text'"
+        min="8" formControlName="password"
+        required="true"></ion-input>
+        <ion-icon
+         class="ion-align-self-center"
+        slot="end"
+        name="eye-outline" (click)="changetype()">
+        </ion-icon>
+        </ion-item>
+
+        <label style="color: red;
+         margin-left: 20px;"
+          *ngIf="pass && pass.invalid && pass.touched">
+          invalid password
+          </label>
+
+
+  </form>
+  </div>
+  <div class="forget">
+    <ion-button color="danger" slot="end" (click)="navigatetoforget()" fill="clear">forget password</ion-button>
+  </div>
+  <div class="footer">
+    <div id="signin">
+      <ion-button (click)="login()" color="dark" expand="block">Sign In</ion-button>
+    </div>
+    <ion-button (click)="navigateto()" fill="clear">don`t have accoutn? signUp</ion-button>
+  </div>
+
+</div>
+</ion-content>
